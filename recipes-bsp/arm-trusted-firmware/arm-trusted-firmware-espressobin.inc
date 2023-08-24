@@ -8,13 +8,13 @@ PROVIDES += "\
 "
 
 # DEPENDS for a3700-utils
-DEPENDS_append = "\
+DEPENDS += "\
     lib32-glibc \
     lib32-gcc-cross-arm \
 "
 
 # DEPENDS for atf
-DEPENDS_append = " \
+DEPENDS += " \
     coreutils-native \
     openssl-native \
     unzip-native \
@@ -38,12 +38,12 @@ TARGET_OS_CM3 = "${TARGET_OS}-gnueabi"
 MACHINE_ARCH_CM3 = "${MACHINE_ARCH}"
 
 TARGET_SYS_CM3 = "${TARGET_ARCH_CM3}"
-TARGET_SYS_CM3_append = "${TARGET_VENDOR_CM3}"
-TARGET_SYS_CM3_append = "-${TARGET_OS_CM3}"
+TARGET_SYS_CM3:append = "${TARGET_VENDOR_CM3}"
+TARGET_SYS_CM3:append = "-${TARGET_OS_CM3}"
 
 MULTIMACH_TARGET_SYS_CM3 = "${MACHINE_ARCH_CM3}"
-MULTIMACH_TARGET_SYS_CM3_append = "${TARGET_VENDOR_CM3}"
-MULTIMACH_TARGET_SYS_CM3_append = "-${TARGET_OS_CM3}"
+MULTIMACH_TARGET_SYS_CM3:append = "${TARGET_VENDOR_CM3}"
+MULTIMACH_TARGET_SYS_CM3:append = "-${TARGET_OS_CM3}"
 
 STAGING_DIR_TARGET_CM3 = "${WORKDIR}/lib32-recipe-sysroot"
 STAGING_INCDIR_CM3 = "${STAGING_DIR_TARGET_CM3}/usr/include"
@@ -52,7 +52,7 @@ export DIR_TARGET_CM3 = "${STAGING_DIR_TARGET_CM3}"
 export CROSS_CM3 = "${STAGING_BINDIR_NATIVE}/${TARGET_SYS_CM3}/${TARGET_SYS_CM3}-"
 export INCLUDE_CM3 = "${STAGING_INCDIR_CM3}"
 
-EXTRA_OEMAKE_append = ' \
+EXTRA_OEMAKE:append = ' \
     HOSTCC="${BUILD_CC} ${BUILD_CFLAGS} ${BUILD_LDFLAGS}" \
     BL33="${DEPLOY_DIR_IMAGE}/u-boot.bin" \
     PLAT="${ATF_PLATFORM}" \
@@ -72,7 +72,7 @@ cleancm3 () {
     rm -rf "${DIR_TARGET_CM3}"
 }
 
-do_cleanall_append () {
+do_cleanall:append () {
     bb.build.exec_func("cleancm3", d)
 }
 
