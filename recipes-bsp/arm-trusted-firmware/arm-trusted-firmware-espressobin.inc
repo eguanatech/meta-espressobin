@@ -8,13 +8,13 @@ PROVIDES += "\
 "
 
 # DEPENDS for a3700-utils
-DEPENDS += "\
+DEPENDS:append = "\
     lib32-glibc \
     lib32-gcc-cross-arm \
 "
 
 # DEPENDS for atf
-DEPENDS += " \
+DEPENDS:append= " \
     coreutils-native \
     openssl-native \
     unzip-native \

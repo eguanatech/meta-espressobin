@@ -24,9 +24,9 @@ SRCDIR_atf = "${WORKDIR}/${SRCNAME_atf}"
 SRCCFG_atf = "branch=${SRCBRANCH_atf};name=${SRCNAME_atf};destsuffix=${SRCNAME_atf}"
 SRCURI_atf = "${SRCREPO_atf};${SRCCFG_atf}"
 
-SRC_URI += " git://${SRCURI_atf};protocol=https"
+SRC_URI:append = " git://${SRCURI_atf};protocol=https"
 
-SRC_URI += "\
+SRC_URI:append = "\
     file://0001-Use-BUILD_CC-to-compile-native-parts.patch;patchdir=${SRCDIR_atf} \
 "
 
@@ -47,7 +47,7 @@ SRCDIR_mv-ddr = "${WORKDIR}/${SRCNAME_mv-ddr}"
 SRCCFG_mv-ddr = "branch=${SRCBRANCH_mv-ddr};name=${SRCNAME_mv-ddr};destsuffix=${SRCNAME_mv-ddr}"
 SRCURI_mv-ddr = "${SRCREPO_mv-ddr};${SRCCFG_mv-ddr}"
 
-SRC_URI += " git://${SRCURI_mv-ddr};protocol=https"
+SRC_URI:append = " git://${SRCURI_mv-ddr};protocol=https"
 
 #######################################
 # a3700-utils-marvell
@@ -64,9 +64,9 @@ SRCDIR_a3700-utils = "${WORKDIR}/${SRCNAME_a3700-utils}"
 SRCCFG_a3700-utils = "branch=${SRCBRANCH_a3700-utils};name=${SRCNAME_a3700-utils};destsuffix=${SRCNAME_a3700-utils}"
 SRCURI_a3700-utils = "${SRCREPO_a3700-utils};${SRCCFG_a3700-utils}"
 
-SRC_URI += " git://${SRCURI_a3700-utils};protocol=https"
+SRC_URI:append = " git://${SRCURI_a3700-utils};protocol=https"
 
-SRC_URI += "\
+SRC_URI:append = "\
     file://0001-Provided-include-directory-to-wtmi-Makefiles.patch;patchdir=${SRCDIR_a3700-utils} \
 "
 

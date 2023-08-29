@@ -3,8 +3,8 @@ DESCRIPTION = "U-Boot for Globalscale Marvell ESPRESSObin"
 HOMEPAGE = "http://www.denx.de/wiki/U-Boot"
 SECTION = "bootloaders"
 
-DEPENDS += "bc-native dtc-native"
-EXTRA_OEMAKE += "DEVICE_TREE=${UBOOT_DEVICE_TREE}"
+DEPENDS:append= "bc-native dtc-native"
+EXTRA_OEMAKE:append = "DEVICE_TREE=${UBOOT_DEVICE_TREE}"
 
 require recipes-bsp/u-boot/u-boot.inc
 

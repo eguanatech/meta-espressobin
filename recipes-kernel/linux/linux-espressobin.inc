@@ -2,7 +2,7 @@ SUMMARY = "Linux Kernel for Globalscale Marvell ESPRESSObin"
 DESCRIPTION = "Linux Kernel for Globalscale Marvell ESPRESSObin"
 HOMEPAGE = "https://git.kernel.org/"
 
-DEPENDS += " kern-tools-native xz-native bc-native"
+DEPENDS:append = " kern-tools-native xz-native bc-native"
 DEPENDS:append:aarch64 = " libgcc"
 KERNEL_CC:append:aarch64 = " ${TOOLCHAIN_OPTIONS}"
 KERNEL_LD:append:aarch64 = " ${TOOLCHAIN_OPTIONS}"
@@ -18,7 +18,7 @@ do_configure:prepend () {
 BB_GIT_SHALLOW = "1"
 BB_GIT_SHALLOW_DEPTH = "1"
 
-FILESEXTRAPATHS:prepend = "${THISDIR}/configs:"
+FILESEXTRAPATHS:prepend := "${THISDIR}/configs:"
 
 SRC_URI += "file://defconfig"
 SRC_URI += "${@bb.utils.contains('TUNE_FEATURES', 'bigendian', 'file://bigendian.cfg',  '', d)}"

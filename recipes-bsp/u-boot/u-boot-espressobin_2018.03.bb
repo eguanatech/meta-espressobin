@@ -10,7 +10,7 @@ FILESEXTRAPATHS:prepend = "${THISDIR}/patches:"
 #FILESEXTRAPATHS_prepend_espressobin-v7 := "${THISDIR}/patches-v7:"
 FILESEXTRAPATHS:prepend:espressobin-v7 = "${THISDIR}/patches-v7:"
 
-SRC_URI += "\
+SRC_URI:append = "\
     file://0001-Swapped-sdhci0-and-sdhci1-to-reflect-linux-device-tr.patch \
     file://0002-Add-target-to-generate-initial-environment.patch \
 "
